@@ -1,16 +1,20 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer tokenizer = new StringTokenizer(br.readLine());
+        StringBuffer sb = new StringBuffer();
 
-        int king = 1 - scanner.nextInt();
-        int queen = 1 - scanner.nextInt();
-        int rook = 2 - scanner.nextInt();
-        int knight = 2 - scanner.nextInt();
-        int bishop = 2 - scanner.nextInt();
-        int pawn = 8 - scanner.nextInt();
+        int arr[] = {1, 1, 2, 2, 2, 8};
 
-        System.out.println(king + " " + queen + " " + rook + " " + knight + " " + bishop + " " + pawn);
+        for(int i = 0; i < arr.length; i++){
+           sb.append(arr[i] - Integer.parseInt(tokenizer.nextToken())).append(" ");
+        }
+
+        br.close();
+        
+        System.out.println(sb);
     }
 }
