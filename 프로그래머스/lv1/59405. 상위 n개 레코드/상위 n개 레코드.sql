@@ -1,0 +1,12 @@
+-- 코드를 입력하세요
+
+SELECT B.NAME
+FROM(
+    SELECT ROWNUM RM, A.NAME
+    FROM( 
+        SELECT NAME
+        FROM ANIMAL_INS
+        ORDER BY DATETIME
+    )A
+)B
+WHERE RM = 1
