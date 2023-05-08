@@ -5,7 +5,7 @@ FROM
         SELECT
             FLAVOR
         FROM 
-            FIRST_HALF A
+            FIRST_HALF
         WHERE
             TOTAL_ORDER >= 3000
         ORDER BY 
