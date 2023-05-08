@@ -1,16 +1,16 @@
 SELECT 
-    F.FLAVOR
+    F.flavor
 FROM
     (
         SELECT
-            FLAVOR
+            flavor
         FROM 
-            FIRST_HALF
+            first_half
         WHERE
-            TOTAL_ORDER >= 3000
+            total_order > 3000
         ORDER BY 
-            TOTAL_ORDER
-    )F, ICECREAM_INFO I
+            total_order desc
+    )F, icecream_info I
 WHERE 
-    I.INGREDIENT_TYPE = 'fruit_based'
-    AND I.FLAVOR = F.FLAVOR
+    I.ingredient_type = 'fruit_based'
+    AND I.flavor = F.flavor
