@@ -1,6 +1,6 @@
 # [unrated] 조건에 맞는 사용자 정보 조회하기 - 164670 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164670?language=oracle) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/164670?language=mysql) 
 
 ### 성능 요약
 
