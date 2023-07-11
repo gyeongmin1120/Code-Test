@@ -1,19 +1,17 @@
 import java.util.*;
 
 class Solution {
-    public int[] solution(int[] arr, boolean[] flag) {
-        ArrayList<Integer> list = new ArrayList();
+    public ArrayList solution(int[] arr, boolean[] flag) {
+        int[] answer = {};
+        ArrayList<String> list = new ArrayList();
         
         for(int i=0; i < flag.length; i++){
-            if(flag[i]){
-                for(int j = 0; j < arr[i] * 2; j++)
-                    list.add(arr[i]);
-            }else{
+            if(flag[i]) list.add(String.valueOf(arr[i]).repeat(arr[i]));
+            else{
                 for(int j = arr[i]; j > 0; j--)
-                    list.remove(list.size()-1);
+                    list.remove(list.size()+1);
             }
         }
-        
-        return list.stream().mapToInt(Integer::intValue).toArray();
+        return list;
     }
 }
