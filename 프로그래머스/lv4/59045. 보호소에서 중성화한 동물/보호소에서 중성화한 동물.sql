@@ -1,0 +1,16 @@
+SELECT
+    O.ANIMAL_ID,
+    O.ANIMAL_TYPE,
+    O.NAME
+FROM
+    ANIMAL_OUTS O INNER JOIN(
+        SELECT
+           ANIMAL_ID
+        FROM
+            ANIMAL_INS
+        WHERE
+            SEX_UPON_INTAKE LIKE '%Intact%'
+
+    ) I ON I.ANIMAL_ID = O.ANIMAL_ID
+WHERE
+    O.SEX_UPON_OUTCOME LIKE '%Spayed%' OR O.SEX_UPON_OUTCOME LIKE '%Neutered%'
