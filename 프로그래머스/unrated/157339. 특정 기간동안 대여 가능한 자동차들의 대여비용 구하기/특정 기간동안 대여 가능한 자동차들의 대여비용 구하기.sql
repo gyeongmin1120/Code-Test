@@ -1,7 +1,7 @@
 SELECT
     A.CAR_ID,
     A.CAR_TYPE,
-    A.DAILY_FEE * (( 100 - P.DISCOUNT_RATE) / 100) * 30 AS FEE
+    TRUNCATE(A.DAILY_FEE * (( 100 - P.DISCOUNT_RATE) / 100) * 30 ,-1) AS FEE
 FROM
     (
         SELECT
@@ -17,11 +17,11 @@ FROM
                 FROM
                     CAR_RENTAL_COMPANY_RENTAL_HISTORY
                 WHERE
-                    TO_CHAR(END_DATE, 'YYYY-MM-DD') >= '2022-11-01' 
-                    --END_DATE <= TO_DATE('2022-11-01', 'YYYY-MM-DD')
+                    DATE_FORMAT(END_DATE, '%Y-%m-%d') >= '2022-11-01' 
+                    -- END_DATE <= TO_DATE('2022-11-01', 'YYYY-MM-DD')
                     AND 
-                    TO_CHAR(START_DATE, 'YYYY-MM-DD') <= '2022-11-30'
-                    --START_DATE <= TO_DATE('2022-11-30', 'YYYY-MM-DD')
+                    DATE_FORMAT(START_DATE, '%Y-%m-%d') <= '2022-11-30'
+                    -- START_DATE <= TO_DATE('2022-11-30', 'YYYY-MM-DD')
             ) 
             AND CAR_TYPE IN ('세단', 'SUV')
         ) A JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN P
