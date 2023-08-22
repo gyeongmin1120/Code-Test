@@ -3,6 +3,4 @@
 
 ## JAVA
 
-## ORACLE 
-
-## MySQL
+## ORACLE & MySQL
